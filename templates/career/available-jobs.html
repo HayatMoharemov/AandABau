@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Career at A&A Bau{% endblock %}
+{% block content %}
+    <h1 style="text-align: center; margin-bottom: 50px;">
+        Build your career with us!
+    </h1>
+
+    <p>
+        At A&A Bau, we are building more than just structures – we are building futures.
+        Join our team of skilled professionals and contribute to projects that shape cities and communities.
+        From site supervision and technical management to construction work and office administration,
+        we offer opportunities for growth, hands-on experience, and a supportive work environment.
+        If you are passionate about construction, teamwork, and delivering high-quality results, explore our current openings and take the next step in your career with us.
+    </p>
+    <div>
+        <a href="{% url 'career:site_supervisor' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Site Supervisor</a>
+
+        <a href="{% url 'career:technical_manager' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Technical Manager</a>
+
+        <a href="{% url 'career:construction_worker' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Construction Worker</a>
+
+        <a href="{% url 'career:office_administrator' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Office Administrator</a>
+    </div>
+{% endblock %}
