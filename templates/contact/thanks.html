@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='main-text'>
+    <h1>
+        Thank you for contacting us!
+    </h1>
+        <p>
+            You will be hearing from us in the next 24 hours! We will contact you with the details you left us in the contact
+        </p>
+    <div class='home-button'>
+        <a href='{% url 'common:home' %}' class='btn btn-primary'>Home</a>
+    </div>
+</div>
+
+<style>
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    max-width: 700px;
+}
+</style>
+{% endblock %}

@@ -1,10 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-8 col-md-12">
+            <div class="contact-container">
+                <h1>Contact us!</h1>
+                <p>Have questions or need more information?</p>
+                <p>Feel free to get in touch by submitting the form below.</p>
+
+                <form method="post" class="mt-4">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group mb-3">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="field-errors">
+                                    {% for error in field.errors %}
+                                        <div class="error-message">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <aside class="contact-right-side-container">
+                <h3>Contact info:</h3>
+                <p>E-mail: a-abau@mail.com</p>
+                <p>Tel: +49 123 45678</p>
+                <p>63036 Frankfurt am Main,</p>
+                <p>Mainzer Landstrasse 59,</p>
+                <p>A & A BAU Facility Management</p>
+            </aside>
+        </div>
+
+    </div>
+</div>
+<style>
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    max-width: 100%;
+}
+
+.contact-container p {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-right-side-container {
+    background-color: transparent;
+    border: 2px solid #a0c4ff;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+
+    position: sticky;
+    top: 20px;
+}
+
+
+
+.row h1 {
+    margin-bottom: 20px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 2px solid #a0c4ff;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 12px rgba(0,123,255,0.2);
+    outline: none;
+}
+
+.contact-container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-container .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-container .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.field-errors {
+    margin-top: 5px;
+}
+
+.field-errors .error-message {
+    color: #dc3545;
+    background-color: #ffe6e6;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+</style>
+{% endblock %}
