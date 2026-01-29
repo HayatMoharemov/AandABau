@@ -1,10 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class='jobs-list-mini-header'>
+    <h1>Available jobs</h1>
+        <p>Let's make it work together! You see a position that fits your skills? You can simply apply by clicking the 'Apply' button.</p>
+</div>
+    <div class='job-list'>
+        <ul>{% for job in page %}
+            <li>
+                <h4><strong>{{ job.get_title_display }}</strong></h4>
+                <p>Location: {{ job.location }}</p>
+                <p>Employment type: {{ job.get_employment_type_display }}</p>
+                <p>Job description: {{ job.description }}</p>
+                <p>Requirements: {{ job.requirements }}</p>
+                <a href='{% url 'career:apply_job' job.pk %}' class='btn btn-primary'>Apply</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class='pagination'>
+        {% if page.has_previous %}
+            <a href='?page={{ page.previous_page_number }}'>Previous</a>
+        {% endif %}
+        <span>Page {{ page.number }} of {{ total_pages }}</span>
+        {% if page.has_next%}
+            <a href='?page={{ page.next_page_number }}'>Next</a>
+        {% endif %}
+    </div>
+    <style>
+
+    .jobs-list-mini-header {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .job-list li p {
+        margin: 0.2em 0;
+    }
+    .job-list li {
+        margin-bottom: 50px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    .job-list .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        margin-top: 15px;
+        border: none;
+        padding: 6px 26px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .job-list .btn-primary:hover {
+        background-color: #0056b3;
+    }
+        .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #007bff;
+        min-height: 36px;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .pagination span {
+        display: flex;
+        align-items: center;
+        min-height: 36px;
+    }
+
+    </style>
+{% endblock %}

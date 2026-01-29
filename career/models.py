@@ -53,13 +53,13 @@ class JobApplication(models.Model):
 
     job = models.ForeignKey(JobPositions,
                             on_delete=models.CASCADE,
-                            related_name='applications')
+                            related_name='position')
     first_name = models.CharField(max_length=100,
                                   validators=[name_validator])
-    second_name = models.CharField(max_length=100,
+    last_name = models.CharField(max_length=100,
                                    validators=[name_validator])
     email = models.EmailField()
-    phone = models.CharField(max_length=14,
+    phone_number = models.CharField(max_length=14,
                              validators=[check_number_length,
                                          check_if_its_digits,
                                          phone_number_code_validator])
@@ -71,4 +71,4 @@ class JobApplication(models.Model):
                                 default=HireChoices.NOT_HIRED)
 
     def __str__(self):
-        return f"{self.first_name} {self.second_name} - {self.job.title}"
+        return f"{self.first_name} {self.last_name} - {self.job.title}"

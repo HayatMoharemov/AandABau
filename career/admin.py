@@ -13,8 +13,8 @@ class JobPositionsAdmin(ModelAdmin):
 
 @admin.register(JobApplication)
 class JobApplicationAdmin(ModelAdmin):
-    list_display = ['first_name', 'second_name','job', 'submitted_at','is_hired']
+    list_display = ['first_name', 'last_name','job', 'submitted_at','is_hired']
     list_filter = ['job__title', 'is_hired']
-    search_filter = ['first_name', 'second_name']
-    read_only_fields = ['first_name', 'second_name', 'job__title', 'submitted_at']
-    fields = ['first_name', 'second_name', 'is_hired', 'submitted_at']
+    search_fields = ['first_name', 'last_name']
+    read_only_fields = ['first_name', 'last_name', 'job__title', 'submitted_at']
+    fields = ['first_name', 'last_name', 'is_hired']

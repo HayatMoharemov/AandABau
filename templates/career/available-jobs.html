@@ -13,12 +13,24 @@
         If you are passionate about construction, teamwork, and delivering high-quality results, explore our current openings and take the next step in your career with us.
     </p>
     <div>
-        <a href="{% url 'career:site_supervisor' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Site Supervisor</a>
-
-        <a href="{% url 'career:technical_manager' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Technical Manager</a>
-
-        <a href="{% url 'career:construction_worker' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Construction Worker</a>
-
-        <a href="{% url 'career:office_administrator' %}" class="btn" style="background-color: #009dff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 5px; display: inline-block;">Office Administrator</a>
+        <a href="{% url 'career:jobs_list' %}" class="btn btn-primary">View our job offers!</a>
     </div>
+    <style>
+    .btn-primary{
+        display: flex;
+        justify-content: center;
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+}
+
+.contact-container .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+    </style>
 {% endblock %}
