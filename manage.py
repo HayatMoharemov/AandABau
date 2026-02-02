@@ -128,6 +128,8 @@ from career.models import JobPositions
 # )
 
 #'''Data ready to seed for feedback app'''
+
+
 # CreateFeedback.objects.bulk_create([
 #     CreateFeedback(
 #         name="Michael Thompson",

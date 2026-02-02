@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<div class='Header-content'>
+    <h1>Share your experience with us!</h1>
+        <h4> Hi there,</h4>
+            <p>
+                We still remember the day we started talking about your project — and we hope the finished result brought you joy and comfort.
+                Now we’d love to hear your side of the story.
+                A quick rating and a few lines about what you liked (or what could have been even better) would mean a lot to the whole A&A Bau team.
+                Thank you for trusting us with something as important as your home.
+            </p>
+    <div class='feedback-form'>
+        <form method='post' class='mt-4'>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class='form-group mb-3'>
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class='field-errors'>
+                        {% for error in field.errors %}
+                            <div class="error-message">{{ error }}</div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

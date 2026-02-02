@@ -16,10 +16,7 @@ class CreateFeedback(models.Model):
         GOOD = 4, 'Good'
         EXCELLENT = 5, 'Excellent'
 
-    first_name = models.CharField(
-        validators=[name_validator]
-    )
-    last_name = models.CharField(
+    name = models.CharField(
         validators=[name_validator]
     )
     rating = models.IntegerField(

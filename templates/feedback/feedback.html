@@ -1,10 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load feedback_stars %}
+{% block title %}Feedback{% endblock %}
+{% block content %}
+    <div class='header'>
+        <h1>Feedback from the people we build for</h1>
+    </div>
+    <div class='feedback-button'>
+        <a href='{% url 'feedback:add_feedback' %}' class='btn btn-primary'>Leave a feedback</a>
+    </div>
+    <div class='feedbacks-list'>
+        <ul>
+            {% for feedback in page %}
+                <li class='feedback-container'>
+                    <p><strong>{{ feedback.name }}</strong></p>
+                    <p>{{ feedback.rating|feedback_stars }}</p>
+                    <p>{{ feedback.comment }}</p>
+                    <p>{{ feedback.created_at }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    <div class='pagination'>
+        {% if page.has_previous %}
+            <a href='?page={{ page.previous_page_number }}'>Previous</a>
+        {% endif %}
+        <span>Page {{ page.number }} of {{ total_pages }}</span>
+        {% if page.has_next%}
+            <a href='?page={{ page.next_page_number }}'>Next</a>
+        {% endif %}
+    </div>
+    </div>
+    <style>
+    .feedback-button .btn-primary{
+        display: flex;
+        justify-content: center;
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-bottom: 50px;
+    }
+    .feedback-button .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .feedbacks-list li p {
+        margin: 0.2em 0;
+    }
+    .feedbacks-list li {
+        margin-bottom: 50px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
 
-</body>
-</html>
+    .pagination a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #007bff;
+        min-height: 36px;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .pagination span {
+        display: flex;
+        align-items: center;
+        min-height: 36px;
+    }
+    </style>
+{% endblock %}
