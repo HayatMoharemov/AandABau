@@ -1,5 +1,6 @@
 from django.db import models
-from career.validators import check_number_length, check_if_its_digits, phone_number_code_validator, name_validator
+from common.validators import phone_number_code_validator, check_if_its_digits, check_number_length, name_validator
+
 
 class ContactForm(models.Model):
     class Meta:
