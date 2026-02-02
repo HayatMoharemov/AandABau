@@ -21,7 +21,8 @@ if __name__ == '__main__':
     main()
 
 
-
+from django.utils import timezone
+from feedback.models import CreateFeedback
 from career.models import JobPositions
 
 '''Here we have some data that can be seeded directly to the database by simply running the script under. Make sure to uncomment the code.'''
@@ -125,3 +126,79 @@ from career.models import JobPositions
 #     location="Frankfurt am Main, Germany",
 #     employment_type=JobPositions.EmploymentChoices.PART_TIME
 # )
+
+#'''Data ready to seed for feedback app'''
+# CreateFeedback.objects.bulk_create([
+#     CreateFeedback(
+#         name="Michael Thompson",
+#         rating=CreateFeedback.Rating.EXCELLENT,
+#         comment="Built our dream home exactly on time and budget. The attention to detail was outstanding!",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Sarah Patel",
+#         rating=CreateFeedback.Rating.GOOD,
+#         comment="Very professional team. Kitchen renovation looks great, just a few small paint touch-ups needed after handover.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="David & Laura Wilson",
+#         rating=CreateFeedback.Rating.AVERAGE,
+#         comment="Solid work overall, but communication could be better — we had to chase updates several times.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="James Rodriguez",
+#         rating=CreateFeedback.Rating.BAD,
+#         comment="Significant delays on the extension project. Promised 8 weeks, took almost 5 months. Disappointing.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Emily Chen",
+#         rating=CreateFeedback.Rating.EXCELLENT,
+#         comment="New roof installed perfectly in bad weather — crew was very efficient and cleaned up thoroughly.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Robert Kline",
+#         rating=CreateFeedback.Rating.VERY_BAD,
+#         comment="Poor quality materials used for bathroom tiling. Already cracking after 4 months. No real response from office.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Anna Kowalski",
+#         rating=CreateFeedback.Rating.GOOD,
+#         comment="Office fit-out completed to high standard. Minor electrical issues fixed quickly after we reported them.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Carlos Mendoza",
+#         rating=CreateFeedback.Rating.AVERAGE,
+#         comment="Decent price and the structure is sound, but finishing work (trim, paint) feels rushed.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Sophie Laurent",
+#         rating=CreateFeedback.Rating.EXCELLENT,
+#         comment="Renovated our 1970s house — modern, energy-efficient, and beautiful. Project manager was excellent.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Mark Evans",
+#         rating=CreateFeedback.Rating.BAD,
+#         comment="Driveway and landscaping done, but levels are off — water pools in one corner every rain.",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Lisa & Tom Harper",
+#         rating=CreateFeedback.Rating.GOOD,
+#         comment="Full home build. Mostly happy — only issue was a 3-week delay due to permit problems (not entirely their fault).",
+#         created_at=timezone.now(),
+#     ),
+#     CreateFeedback(
+#         name="Ahmed Al-Sayed",
+#         rating=CreateFeedback.Rating.EXCELLENT,
+#         comment="Commercial warehouse conversion completed ahead of schedule. Great value and very professional.",
+#         created_at=timezone.now(),
+#     ),
+# ])
