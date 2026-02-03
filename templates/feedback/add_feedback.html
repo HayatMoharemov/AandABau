@@ -13,8 +13,7 @@
         <form method='post' class='mt-4'>
             {% csrf_token %}
             {% for field in form %}
-                <div class='form-group mb-3'>
-                    {{ field.label_tag }}
+                <div class='form-feedback mb-3'>
                     {{ field }}
                     {% if field.errors %}
                         <div class='field-errors'>
@@ -29,4 +28,46 @@
         </form>
     </div>
 </div>
+    <style>
+    .form-feedback input,
+    .form-feedback textarea {
+        width: 100%;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+        border: 2px solid #a0c4ff;
+        border-radius: 25px;
+        font-size: 1rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transition: border 0.3s, box-shadow 0.3s;
+    }
+    
+    
+    .form-feedback input:focus,
+    .form-feedback textarea:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 12px rgba(0,123,255,0.2);
+        outline: none;
+    }
+    
+    .form-feedback textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+    .form-feedback select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #a0c4ff;
+    border-radius: 25px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-feedback select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 12px rgba(0,123,255,0.2);
+    outline: none;
+}
+    </style>
 {% endblock %}

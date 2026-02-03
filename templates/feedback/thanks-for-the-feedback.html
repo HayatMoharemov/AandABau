@@ -1,2 +1,29 @@
 {% extends 'base.html' %}
-{% block title %} Feedback {% endblock %}
+{% block content %}
+<div class='main-text'>
+    <h1>
+        Thank you for your feedback!
+    </h1>
+        <p>
+            We truly appreciate you taking the time to share your thoughts with us.
+            Your feedback helps us improve and ensures we continue delivering the best experience possible.
+            Thank you for being a part of our journey — your voice matters!
+        </p>
+    <div class='back-to-feedbacks-button'>
+        <a href='{% url 'feedback:feedbacks' %}' class='btn btn-primary'>Back to feedbacks</a>
+    </div>
+</div>
+
+<style>
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px auto;
+    max-width: 700px;
+}
+</style>
+{% endblock %}

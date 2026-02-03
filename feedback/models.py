@@ -8,6 +8,7 @@ class CreateFeedback(models.Model):
     class Meta:
         verbose_name = 'Feedback'
         verbose_name_plural = 'Feedbacks'
+        ordering = ['-created_at']
 
     class Rating(models.IntegerChoices):
         VERY_BAD = 1, 'Very bad'
