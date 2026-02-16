@@ -1,6 +1,17 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.db.models import Prefetch
+from django.views.generic import ListView, DetailView
+
+from ourteam.models import TeamMembersModel
+
 
 # Create your views here.
-def our_team(request: HttpRequest) -> HttpResponse:
-    return render(request, 'ourteam/our-team.html')
+
+class OurTeamListView(ListView):
+    model = TeamMembersModel
+    template_name = 'ourteam/our-team.html'
+    context_object_name = 'team_members'
+
+class TeamMemberDetails(DetailView):
+    model = TeamMembersModel
+    template_name = 'ourteam/details.html'
+    context_object_name = 'member_details'
