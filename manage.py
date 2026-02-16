@@ -211,6 +211,23 @@ from ourteam.models import TeamMembersModel
 # ])
 
 #'''Team members'''
+# # ====== SITE SUPERVISOR (2) ======
+# site_supervisor1 = TeamMembersModel.objects.create(
+#     name="Bobi Bobinson",
+#     description="Bobi is a dedicated Site Supervisor with extensive experience managing construction projects efficiently.",
+#     position=JobPositions.TitleChoices.SITE_SUPERVISOR
+# )
+# site_supervisor2 = TeamMembersModel.objects.create(
+#     name="Lukas Schmidt",
+#     description="Lukas ensures all construction sites operate safely, on time, and to high quality standards.",
+#     position=JobPositions.TitleChoices.SITE_SUPERVISOR
+# )
+# ====== TECHNICAL MANAGERS (2) ======
+# technical_manager1 = TeamMembersModel.objects.create(
+#     name="Sofia Müller",
+#     description="Sofia oversees the technical aspects of construction projects, ensuring smooth execution and compliance.",
+#     position=JobPositions.TitleChoices.TECHNICAL_MANAGER,
+# )
 # technical_manager2 = TeamMembersModel.objects.create(
 #     name="David Weber",
 #     description="David coordinates technical teams and manages project specifications efficiently.",

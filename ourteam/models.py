@@ -17,7 +17,7 @@ class TeamMembersModel(models.Model):
     date_joined = models.DateField(auto_now_add=True)
     slug = models.SlugField(unique=True,
                             editable=False)
-
+    # TO DO ADD FIELDS OF MASTERY (SERVICES M2M)
     def save(self, *args, **kwargs):
 
         if not self.slug:

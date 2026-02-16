@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Our Team{% endblock %}
+{% block content %}
+    <div class='header'>
+        <h1>Construction workers</h1>
+    </div>
+    <div class='workers-container'>
+        {% for member in members%}
+            <div class='worker-card'>
+                <p><strong>Name: </strong>{{ member.name }}</p>
+                <p><strong>Description: </strong>{{ member.description|truncatechars:20 }}</p>
+                <a href="{% url 'ourteam:member_details' member.slug %}" class="btn read-more-btn">Read More</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class='pagination'>
+    {% if page_obj.has_previous %}
+        <a href='?page={{ page_obj.previous_page_number }}'>Previous</a>
+    {% endif %}
+
+    <span>
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+        <a href='?page={{ page_obj.next_page_number }}'>Next</a>
+    {% endif %}
+    </div>
+
+    <style>
+    .workers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    }
+
+    .worker-card {
+        background-color: #f7f7f7;
+        border-radius: 15px;
+        padding: 30px;
+        width: 250px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .worker-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .read-more-btn {
+        display: inline-block;
+        padding: 8px 20px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .read-more-btn:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #007bff;
+        min-height: 36px;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .pagination span {
+        display: flex;
+        align-items: center;
+        min-height: 36px;
+    }
+    </style>
+    
+{% endblock %}

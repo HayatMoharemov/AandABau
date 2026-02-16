@@ -1,2 +1,35 @@
 {% extends 'base.html' %}
 {% block title %}Our Team{% endblock %}
+{% block content %}
+    <h2 class='header'>
+        Meet our <strong>{{ member_details.get_position_display }}</strong> – <strong>{{ member_details.name }}</strong>.
+    </h2>
+    <div class='information-container'>
+        <p><strong>About: </strong>{{ member_details.description }}</p>
+        <p><strong>On the team since: </strong>{{ member_details.date_joined }}</p>
+    </div>
+    <a href="javascript:history.back()" class="btn back-btn">Go Back</a>
+    <style>
+        .header {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            line-height: 1.3;
+        }
+        .back-btn {
+        display: inline-block;
+        padding: 8px 20px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: background 0.3s, transform 0.2s;
+        }
+    
+        .back-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    </style>
+{% endblock %}
