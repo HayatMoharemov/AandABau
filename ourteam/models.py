@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.text import slugify
 
 from career.models import JobPositions
@@ -11,16 +12,16 @@ class TeamMembersModel(models.Model):
 
     name = models.CharField(max_length=100)
     description = models.TextField()
-    position = models.ForeignKey(JobPositions,
-                                 on_delete=models.PROTECT,
-                                 related_name='team_members')
+    position = models.CharField(max_length=50,
+                                choices=JobPositions.TitleChoices.choices)
     date_joined = models.DateField(auto_now_add=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True,
+                            editable=False)
 
     def save(self, *args, **kwargs):
 
         if not self.slug:
-            date_str = self.date_joined.strftime('%d-%m-%y')
+            date_str = timezone.now().strftime('%d-%m-%y')
             self.slug = slugify(f"{self.name}-{self.position}-{date_str}")
         super().save(*args, **kwargs)
 

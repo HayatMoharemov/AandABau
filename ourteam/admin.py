@@ -5,4 +5,5 @@ from ourteam.models import TeamMembersModel
 
 @admin.register(TeamMembersModel)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description','position','date_joined']
+    list_display = ['name', 'description','position','date_joined','slug']
+    ordering = ['-date_joined']

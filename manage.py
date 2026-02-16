@@ -3,6 +3,9 @@
 import os
 import sys
 
+
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AABau.settings')
@@ -24,9 +27,11 @@ if __name__ == '__main__':
 from django.utils import timezone
 from feedback.models import CreateFeedback
 from career.models import JobPositions
+from ourteam.models import TeamMembersModel
 
 '''Here we have some data that can be seeded directly to the database by simply running the script under. Make sure to uncomment the code.'''
 
+#'''Job positions'''
 #SITE SUPERVISOR
 # site_supervisor_1 = JobPositions.objects.create(
 #     title=JobPositions.TitleChoices.SITE_SUPERVISOR,
@@ -204,3 +209,84 @@ from career.models import JobPositions
 #         created_at=timezone.now(),
 #     ),
 # ])
+
+#'''Team members'''
+# technical_manager2 = TeamMembersModel.objects.create(
+#     name="David Weber",
+#     description="David coordinates technical teams and manages project specifications efficiently.",
+#     position=JobPositions.TitleChoices.TECHNICAL_MANAGER,
+# )
+#
+# # ====== OFFICE ADMINISTRATORS (2) ======
+# office_admin1 = TeamMembersModel.objects.create(
+#     name="Anna Fischer",
+#     description="Anna handles administrative duties and ensures smooth office operations.",
+#     position=JobPositions.TitleChoices.OFFICE_ADMINISTRATOR,
+# )
+#
+# office_admin2 = TeamMembersModel.objects.create(
+#     name="Markus Becker",
+#     description="Markus supports office workflows with precision and efficiency.",
+#     position=JobPositions.TitleChoices.OFFICE_ADMINISTRATOR,
+# )
+#
+# # ====== CONSTRUCTION WORKERS (10) ======
+# construction_worker1 = TeamMembersModel.objects.create(
+#     name="Jonas Keller",
+#     description="Jonas is a skilled Construction Worker performing a variety of on-site tasks.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker2 = TeamMembersModel.objects.create(
+#     name="Lena Braun",
+#     description="Lena specializes in construction tasks and ensures quality workmanship.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker3 = TeamMembersModel.objects.create(
+#     name="Maximilian Hofmann",
+#     description="Maximilian performs general construction duties efficiently and safely.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker4 = TeamMembersModel.objects.create(
+#     name="Sophia Klein",
+#     description="Sophia works on-site executing construction tasks with precision.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker5 = TeamMembersModel.objects.create(
+#     name="Felix Wagner",
+#     description="Felix is responsible for a variety of construction-related duties on site.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker6 = TeamMembersModel.objects.create(
+#     name="Emilia Neumann",
+#     description="Emilia ensures high-quality construction work and team collaboration.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker7 = TeamMembersModel.objects.create(
+#     name="Leon Schmidt",
+#     description="Leon is a versatile Construction Worker skilled in multiple trades.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker8 = TeamMembersModel.objects.create(
+#     name="Mia Fischer",
+#     description="Mia contributes to construction projects with precision and dedication.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker9 = TeamMembersModel.objects.create(
+#     name="Niklas Berger",
+#     description="Niklas performs site tasks efficiently, following safety protocols.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
+#
+# construction_worker10 = TeamMembersModel.objects.create(
+#     name="Lea Hoffmann",
+#     description="Lea works as a Construction Worker, ensuring timely and quality results.",
+#     position=JobPositions.TitleChoices.CONSTRUCTION_WORKER,
+# )
